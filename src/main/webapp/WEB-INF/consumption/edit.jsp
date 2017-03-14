@@ -2,6 +2,8 @@
 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+
 
 <html>
 <head>
@@ -22,26 +24,20 @@
     <br/><br/>
     <div class="jumbotron">
         <h2>Cadastro de Consulmo</h2>
-        <div class="form-group label-floating">
-            <label class="control-label" for="focusedInput1">Nome:</label>
-            <input class="form-control" id="focusedInput1" type="text">
-        </div>
-        <div class="form-group label-floating">
-            <label for="222" class="control-label">Quantidade</label>
-            <input type="number" class="form-control" id="222">
-            <p class="help-block">You should really write something here</p>
-        </div>
-        <div class="sample">
-            <div class="form-group">
-                <label for="s1">Tipo de consulmo</label>
-                <select id="s1" class="form-control">
-                    <c:forEach items="${consumptions}" var="item">
-                        <option value="${item}">${item}</option>
-                    </c:forEach>
-                </select>
+        <form:form commandName="consumption" action="/consumption/save" method="post">
+            <div class="form-group label-floating">
+                <label class="control-label">Quantidade</label>
+                <form:input path="quantity" type="number" cssClass="form-control"/>
+                <p class="help-block">Quantity in litters</p>
             </div>
-        </div>
-
+            <div class="sample">
+                <div class="form-group">
+                    <label class="control-label">Tipo</label>
+                    <form:select path="type" cssClass="form-control" items="${types}"/>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-raised btn-default">Salvar</button>
+        </form:form>
 
     </div>
 </div>
