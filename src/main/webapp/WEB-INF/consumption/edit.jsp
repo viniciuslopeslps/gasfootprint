@@ -16,7 +16,6 @@
     <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/bootstrap-material-design/js/material.min.js"></script>
     <script type="text/javascript" src="/bootstrap-material-design/js/ripples.min.js"></script>
-
 </head>
 <body>
 <div class="container">
@@ -31,7 +30,6 @@
             <label for="222" class="control-label">Quantidade</label>
             <input type="number" class="form-control" id="222">
             <p class="help-block">You should really write something here</p>
-
         </div>
         <div class="sample">
             <div class="form-group">
@@ -42,11 +40,11 @@
                     </c:forEach>
                 </select>
             </div>
+        </div>
+
+
     </div>
-
-
 </div>
-
 <script>
     $.material.init();
 </script>
