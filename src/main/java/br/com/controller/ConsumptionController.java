@@ -1,6 +1,10 @@
 package br.com.controller;
 
+import br.com.model.ConsumptionType;
+import br.com.service.ConsumptionService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -13,7 +17,8 @@ public class ConsumptionController {
     }
 
     @RequestMapping("/edit")
-    public String edit() {
+    public String edit(Model model) {
+        model.addAttribute("consumptions", ConsumptionType.values());
         return "/consumption/edit";
     }
 }
