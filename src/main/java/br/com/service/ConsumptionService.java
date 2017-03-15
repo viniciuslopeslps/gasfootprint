@@ -28,4 +28,8 @@ public class ConsumptionService {
     public void setConsumptionDAO(ConsumptionDAO consumptionDAO) {
         this.consumptionDAO = consumptionDAO;
     }
+
+    public Consumption findOne(Long id) {
+        return consumptionDAO.findOne(id);
+    }
 }

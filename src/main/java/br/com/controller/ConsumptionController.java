@@ -22,9 +22,13 @@ public class ConsumptionController {
     }
 
     @RequestMapping("/edit")
-    public String edit(Model model) {
+    public String edit(Model model, Long id) {
+        Consumption consumption = new Consumption();
+        if (id != null) {
+            consumption = consumptionService.findOne(id);
+        }
         model.addAttribute("types", ConsumptionType.values());
-        model.addAttribute("consumption", new Consumption());
+        model.addAttribute("consumption", consumption);
         return "/consumption/edit";
     }
 

@@ -23,8 +23,9 @@
 <div class="container">
     <br/><br/>
     <div class="jumbotron">
-        <h2>Cadastro de Consulmo</h2>
+        <h2>Cadastro de Consumo</h2>
         <form:form commandName="consumption" action="/consumption/save" method="post">
+            <form:hidden path="id" />
             <div class="form-group label-floating">
                 <label class="control-label">Quantidade</label>
                 <form:input path="quantity" type="number" cssClass="form-control"/>

@@ -34,7 +34,7 @@
             <h2>Lista de Consumo</h2>
             <c:forEach items="${consumptions}" var="item">
                 <tr>
-                    <td>${item.id}</td>
+                    <td><a href="/consumption/edit?id=${item.id}">${item.id}</a></td>
                     <td>${item.quantity}</td>
                     <td>${item.type}</td>
                 </tr>
