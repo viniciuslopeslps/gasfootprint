@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/consumption")
@@ -27,12 +28,12 @@ public class ConsumptionController {
         if (id != null) {
             consumption = consumptionService.findOne(id);
         }
-        model.addAttribute("types", ConsumptionType.values());
         model.addAttribute("consumption", consumption);
+        model.addAttribute("types", ConsumptionType.values());
         return "/consumption/edit";
     }
 
-    @RequestMapping("/save")
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String save(Consumption consumption) {
         consumptionService.save(consumption);
         return "redirect:/consumption/list";

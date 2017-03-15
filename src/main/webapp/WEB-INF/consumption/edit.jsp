@@ -29,7 +29,7 @@
             <div class="form-group label-floating">
                 <label class="control-label">Quantidade</label>
                 <form:input path="quantity" type="number" cssClass="form-control"/>
-                <p class="help-block">Quantity in litters</p>
+                <p class="help-block">Quantidade em litros</p>
             </div>
             <div class="sample">
                 <div class="form-group">
