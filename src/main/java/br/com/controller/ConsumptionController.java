@@ -38,4 +38,10 @@ public class ConsumptionController {
         consumptionService.save(consumption);
         return "redirect:/consumption/list";
     }
+
+    @RequestMapping(value = "/delete")
+    public String delete(Long id) {
+        consumptionService.delete(id);
+        return "redirect:/consumption/list";
+    }
 }

@@ -28,6 +28,7 @@
                 <th>#</th>
                 <th>Quantidade</th>
                 <th>Tipo</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -37,6 +38,7 @@
                     <td><a href="/consumption/edit?id=${item.id}">${item.id}</a></td>
                     <td>${item.quantity}</td>
                     <td>${item.type}</td>
+                    <td><a href="/consumption/delete?id=${item.id}"><i class="material-icons">delete</i></a></td>
                 </tr>
             </c:forEach>
             </tbody>

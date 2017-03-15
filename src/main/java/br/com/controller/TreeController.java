@@ -36,4 +36,10 @@ public class TreeController {
         return "redirect:/tree/list";
     }
 
+    @RequestMapping(value = "/delete")
+    public String delete(Long id) {
+        treeService.delete(id);
+        return "redirect:/tree/list";
+    }
+
 }

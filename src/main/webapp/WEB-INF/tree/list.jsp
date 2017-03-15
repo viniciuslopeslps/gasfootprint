@@ -27,6 +27,7 @@
             <tr class="info">
                 <th>#</th>
                 <th>Quantidade</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -35,6 +36,7 @@
                 <tr>
                     <td><a href="/tree/edit?id=${item.id}">${item.id}</a></td>
                     <td>${item.quantity}</td>
+                    <td><a href="/tree/delete?id=${item.id}"><i class="material-icons">delete</i></a></td>
                 </tr>
             </c:forEach>
             </tbody>

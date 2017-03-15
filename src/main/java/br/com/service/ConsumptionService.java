@@ -32,4 +32,8 @@ public class ConsumptionService {
     public Consumption findOne(Long id) {
         return consumptionDAO.findOne(id);
     }
+
+    public void delete(Long id) {
+        consumptionDAO.delete(id);
+    }
 }

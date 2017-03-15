@@ -23,4 +23,8 @@ public class TreeService {
     public Tree save(Tree tree) {
         return treeDAO.save(tree);
     }
+
+    public void delete(Long id) {
+        treeDAO.delete(id);
+    }
 }
