@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -18,6 +18,25 @@
     <script type="text/javascript" src="/bootstrap-material-design/js/ripples.min.js"></script>
 </head>
 <body>
+
+<div class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Gas Foot Print</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-inverse-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/consumption/list">Consumos</a></li>
+                <li><a href="/tree/list">Árvores</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
 
 <div class="container">
     <br/><br/>
@@ -44,6 +63,7 @@
             </tbody>
         </table>
     </div>
+    <a href="/consumption/edit" class="btn btn-raised btn-default">Novo</a>
 </div>
 <script>
     $.material.init();

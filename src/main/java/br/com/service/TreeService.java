@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TreeService {
@@ -26,5 +27,9 @@ public class TreeService {
 
     public void delete(Long id) {
         treeDAO.delete(id);
+    }
+
+    public List<Tree> mainTrees() {
+        return treeDAO.findRecentTrees().stream().limit(5).collect(Collectors.toList());
     }
 }

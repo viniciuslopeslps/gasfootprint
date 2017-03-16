@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -19,6 +19,25 @@
 </head>
 <body>
 
+<div class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Gas Foot Print</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-inverse-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/consumption/list">Consumos</a></li>
+                <li><a href="/tree/list">Árvores</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
 <div class="container">
     <br/><br/>
     <div class="jumbotron">
@@ -31,7 +50,7 @@
             </tr>
             </thead>
             <tbody>
-            <h2>Lista de Consumo</h2>
+            <h2>Lista de árvores</h2>
             <c:forEach items="${trees}" var="item">
                 <tr>
                     <td><a href="/tree/edit?id=${item.id}">${item.id}</a></td>
@@ -42,6 +61,7 @@
             </tbody>
         </table>
     </div>
+    <a href="/tree/edit" class="btn btn-raised btn-default">Novo</a>
 </div>
 <script>
     $.material.init();

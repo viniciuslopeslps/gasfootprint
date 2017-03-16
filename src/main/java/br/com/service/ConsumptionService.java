@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ConsumptionService {
@@ -35,5 +36,9 @@ public class ConsumptionService {
 
     public void delete(Long id) {
         consumptionDAO.delete(id);
+    }
+
+    public List<Consumption> mainConsumptions() {
+        return consumptionDAO.findRecentConsumptions().stream().limit(5).collect(Collectors.toList());
     }
 }
