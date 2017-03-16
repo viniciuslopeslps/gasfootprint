@@ -18,14 +18,13 @@ public class HomeController {
     @Autowired
     private TreeService treeService;
 
-//cada litro de gasolina produz 2,44 Kg de CO2.  -->
-//o valor médio de captura é 190 quilos de CO2 por árvore -->
-
     @RequestMapping("/")
     public String index(Model model) {
-        model.addAttribute("needed", homeService.treeToConsumption());
+        model.addAttribute("treeToConsumption", homeService.treeToConsumption());
+        model.addAttribute("consumptionInKg", homeService.consumptionInKg());
         model.addAttribute("mainConsumptions", consumptionService.mainConsumptions());
         model.addAttribute("mainTrees", treeService.mainTrees());
+        model.addAttribute("totalTrees", homeService.totalTrees());
         return "index";
     }
 

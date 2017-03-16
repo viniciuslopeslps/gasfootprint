@@ -64,17 +64,20 @@
                 </c:forEach>
             </div>
         </div>
-        <div class="col-md-offset-1 col-md-2">
+        <div class="col-md-4">
+            <br />
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title">Árvores necessárias</h3>
                 </div>
                 <div class="panel-body">
-                    ${needed}
+                    Gás Carbonico Gerado ${consumptionInKg} kg <br />
+                    Absorvido pelas árvores ${treeToConsumption} kg <br />
+                    Total de árvores: ${totalTrees}
                 </div>
             </div>
         </div>
-        <div class="col-md-offset-1 col-md-4">
+        <div class="col-md-4">
             <h3 class="text-center">Lista árvores</h3>
             <div class="list-group">
                 <c:forEach items="${mainTrees}" var="item">

@@ -14,17 +14,26 @@ public class HomeService {
     @Autowired
     private TreeService treeService;
 
+    //cada litro de gasolina produz 2,44 Kg de CO2.  -->
+//o valor médio de captura é 190 quilos de CO2 por árvore -->
 
     public double treeToConsumption() {
         List<Tree> trees = treeService.findAll();
         Double totalTrees = trees.stream().mapToDouble(Tree::getQuantity).sum();
-        Double consumptionInKg = consumptionInKg();
-        return consumptionInKg / totalTrees;
+        return totalTrees * 190.0;
     }
 
-    private double consumptionInKg() {
+    public double consumptionInKg() {
         List<Consumption> consumptions = consumptionService.findAll();
         int total = consumptions.stream().mapToInt(Consumption::getQuantity).sum();
         return total * 2.44;
+    }
+
+    public long totalTrees() {
+        Double media = consumptionInKg() / 190.0;
+        if (media < 0) {
+            return 0;
+        }
+        return Math.round(media);
     }
 }
