@@ -3,11 +3,14 @@ package br.com.model;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import javax.persistence.*;
-import java.util.ArrayList;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Id;
 import java.util.Collection;
-import java.util.List;
+import java.util.Collections;
 
 @Entity
 //É preciso a entidade User implementar o userDetails
@@ -16,9 +19,10 @@ public class User implements UserDetails {
     private String email;
     private String password;
     private String name;
+
     //um usuário para várias ROLES
-    @OneToMany(fetch = FetchType.EAGER)
-    private List<Role> roles = new ArrayList<>();
+    @Enumerated(EnumType.STRING)
+    private Role roles = Role.ROLE_ADMIN;
 
     public String getEmail() {
         return email;
@@ -30,8 +34,17 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return this.roles;
+        return Collections.singletonList(this.roles);
     }
+
+    public Role getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Role roles) {
+        this.roles = roles;
+    }
+
 
     public String getPassword() {
         return password;
@@ -63,7 +76,7 @@ public class User implements UserDetails {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = new BCryptPasswordEncoder().encode(password);
     }
 
     public String getName() {
@@ -74,11 +87,4 @@ public class User implements UserDetails {
         this.name = name;
     }
 
-    public List<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
-    }
 }

@@ -5,18 +5,15 @@ import org.springframework.security.core.GrantedAuthority;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity
 //a role precisa implementar o grantedAuthority
-public class Role implements GrantedAuthority {
-    //role pode ser: ADMIN,USER etc.
+@Entity
+public enum Role implements GrantedAuthority {
+    ROLE_ADMIN("ROLE_ADMIN");
+
     @Id
-    private String role;
+    final String role;
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
+    Role(String role) {
         this.role = role;
     }
 
@@ -24,4 +21,5 @@ public class Role implements GrantedAuthority {
     public String getAuthority() {
         return this.role;
     }
+    //role pode ser: ADMIN,USER etc.
 }

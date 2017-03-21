@@ -33,6 +33,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="/consumption/list">Consumos</a></li>
                 <li><a href="/tree/list">Árvores</a></li>
+                <li><a href="/user/edit">Novo usuário</a></li>
             </ul>
         </div>
     </div>
