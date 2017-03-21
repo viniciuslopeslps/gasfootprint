@@ -26,12 +26,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     //CONFIGURA AS PERMISSOES DE ACORDO COM AS ROLES DOS USUARIOS APARTIR DA URL
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable();
         http.authorizeRequests()
                 .antMatchers("/consumption/*").hasRole("ADMIN")
                 .antMatchers("/tree/*").hasRole("ADMIN")
                 .antMatchers("/").permitAll()
                 .antMatchers("/resources/**").permitAll()
-                .and().formLogin().permitAll()
+                .and().formLogin().loginPage("/login").permitAll()
                 .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
     }
 

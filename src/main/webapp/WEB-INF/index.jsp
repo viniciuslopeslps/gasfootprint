@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <html>
 <head>
@@ -18,27 +19,7 @@
     <script type="text/javascript" src="/bootstrap-material-design/js/ripples.min.js"></script>
 </head>
 <body>
-
-<div class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Gas Foot Print</a>
-        </div>
-        <div class="navbar-collapse collapse navbar-inverse-collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="/consumption/list">Consumos</a></li>
-                <li><a href="/tree/list">Árvores</a></li>
-                <li><a href="/user/edit">Novo usuário</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-
+<%@ include file="/WEB-INF/base/nav.jsp" %>
 <div class="container">
     <div class="jumbotron">
         <h2>Gas foot print</h2>
@@ -66,14 +47,14 @@
             </div>
         </div>
         <div class="col-md-4">
-            <br />
+            <br/>
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title">Árvores necessárias</h3>
                 </div>
                 <div class="panel-body">
-                    Gás Carbonico Gerado ${consumptionInKg} kg <br />
-                    Absorvido pelas árvores ${treeToConsumption} kg <br />
+                    Gás Carbonico Gerado ${consumptionInKg} kg <br/>
+                    Absorvido pelas árvores ${treeToConsumption} kg <br/>
                     Total de árvores: ${totalTrees}
                 </div>
             </div>
@@ -98,8 +79,5 @@
     </div>
 
 </div>
-<script>
-    $.material.init();
-</script>
 </body>
 </html>

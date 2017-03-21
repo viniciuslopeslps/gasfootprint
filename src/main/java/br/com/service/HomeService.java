@@ -14,8 +14,8 @@ public class HomeService {
     @Autowired
     private TreeService treeService;
 
-    //cada litro de gasolina produz 2,44 Kg de CO2.  -->
-//o valor médio de captura é 190 quilos de CO2 por árvore -->
+    //cada litro de gasolina produz 2,44 Kg de CO2.
+    //o valor médio de captura é 190 quilos de CO2 por árvore
 
     public double treeToConsumption() {
         List<Tree> trees = treeService.findAll();
