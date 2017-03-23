@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
 <html>
 <head>
@@ -30,20 +30,34 @@
         <div class="col-md-4">
             <h3 class="text-center">Lista consumo</h3>
             <div class="list-group">
-                <c:forEach items="${mainConsumptions}" var="item">
-                    <div class="list-group-item">
-                        <div class="btn btn-danger btn-fab">
-                            <i class="material-icons">sentiment_dissatisfied</i>
+                <c:choose>
+                    <c:when test="${empty mainConsumptions}">
+                        <div class="list-group-item">
+                            <div class="btn btn-danger btn-fab">
+                                <i class="material-icons">sentiment_dissatisfied</i>
+                            </div>
+                            <div class="row-content">
+                                <h4 class="list-group-item-heading">Sem registros</h4>
+                            </div>
                         </div>
-                        <div class="row-content">
-                            <div class="least-content">${item.createdAt}</div>
-                            <h4 class="list-group-item-heading">${item.quantity} litros</h4>
+                    </c:when>
+                    <c:otherwise>
+                        <c:forEach items="${mainConsumptions}" var="item">
+                            <div class="list-group-item">
+                                <div class="btn btn-danger btn-fab">
+                                    <i class="material-icons">sentiment_dissatisfied</i>
+                                </div>
+                                <div class="row-content">
+                                    <div class="least-content">${item.createdAt}</div>
+                                    <h4 class="list-group-item-heading">${item.quantity} litros</h4>
 
-                            <p class="list-group-item-text">${item.type}</p>
-                        </div>
-                    </div>
-                    <div class="list-group-separator"></div>
-                </c:forEach>
+                                    <p class="list-group-item-text">${item.type}</p>
+                                </div>
+                            </div>
+                            <div class="list-group-separator"></div>
+                        </c:forEach>
+                    </c:otherwise>
+                </c:choose>
             </div>
         </div>
         <div class="col-md-4">
@@ -62,18 +76,32 @@
         <div class="col-md-4">
             <h3 class="text-center">Lista árvores</h3>
             <div class="list-group">
-                <c:forEach items="${mainTrees}" var="item">
-                    <div class="list-group-item">
-                        <div class="btn btn-success btn-fab">
-                            <i class="material-icons">mood</i>
+                <c:choose>
+                    <c:when test="${empty mainTrees}">
+                        <div class="list-group-item">
+                            <div class="btn btn-success btn-fab">
+                                <i class="material-icons">mood</i>
+                            </div>
+                            <div class="row-content">
+                                <h4 class="list-group-item-heading">Sem registros</h4>
+                            </div>
                         </div>
-                        <div class="row-content">
-                            <div class="least-content">${item.createdAt}</div>
-                            <h4 class="list-group-item-heading">${item.quantity} árvores</h4>
-                        </div>
-                    </div>
-                    <div class="list-group-separator"></div>
-                </c:forEach>
+                    </c:when>
+                    <c:otherwise>
+                        <c:forEach items="${mainTrees}" var="item">
+                            <div class="list-group-item">
+                                <div class="btn btn-success btn-fab">
+                                    <i class="material-icons">mood</i>
+                                </div>
+                                <div class="row-content">
+                                    <div class="least-content">${item.createdAt}</div>
+                                    <h4 class="list-group-item-heading">${item.quantity} árvores</h4>
+                                </div>
+                            </div>
+                            <div class="list-group-separator"></div>
+                        </c:forEach>
+                    </c:otherwise>
+                </c:choose>
             </div>
         </div>
     </div>

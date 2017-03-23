@@ -16,7 +16,7 @@ public class UserController {
     @RequestMapping("/save")
     public String save(User user) {
         User save = userService.save(user);
-        return "redirect:/";
+        return "redirect:/login";
     }
 
     @RequestMapping("/edit")

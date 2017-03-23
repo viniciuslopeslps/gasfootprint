@@ -5,12 +5,10 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 @Entity
 //É preciso a entidade User implementar o userDetails
@@ -23,6 +21,13 @@ public class User implements UserDetails {
     //um usuário para várias ROLES
     @Enumerated(EnumType.STRING)
     private Role roles = Role.ROLE_ADMIN;
+
+    @OneToMany(mappedBy = "user", targetEntity = Consumption.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Consumption> consumptions;
+
+    @OneToMany(mappedBy = "user", targetEntity = Tree.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Tree> trees;
+
 
     public String getEmail() {
         return email;
@@ -87,4 +92,19 @@ public class User implements UserDetails {
         this.name = name;
     }
 
+    public List<Tree> getTrees() {
+        return trees;
+    }
+
+    public void setTrees(List<Tree> trees) {
+        this.trees = trees;
+    }
+
+    public List<Consumption> getConsumptions() {
+        return consumptions;
+    }
+
+    public void setConsumptions(List<Consumption> consumptions) {
+        this.consumptions = consumptions;
+    }
 }

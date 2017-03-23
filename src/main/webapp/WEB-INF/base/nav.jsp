@@ -23,7 +23,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <sec:authorize access="isAuthenticated()">
                     <sec:authentication property="principal" var="user"/>
-                    <li><a href="/#">Usuário: ${user.username}</a></li>
+                    <li><a href="/user/edit?email=${user.username}">Usuário: ${user.username}</a></li>
                 </sec:authorize>
                 <sec:authorize access="hasRole('ROLE_ADMIN')">
                     <li><a href="/logout">Sair</a></li>

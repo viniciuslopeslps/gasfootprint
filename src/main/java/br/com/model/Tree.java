@@ -17,6 +17,9 @@ public class Tree {
     @Column(name = "created_at")
     private Date createdAt = new Date();
 
+    @ManyToOne(targetEntity = User.class)
+    private User user;
+
     public Long getId() {
         return id;
     }
@@ -41,4 +44,11 @@ public class Tree {
         this.createdAt = createdAt;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

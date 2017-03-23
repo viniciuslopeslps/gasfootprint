@@ -24,7 +24,7 @@
 <div class="container">
     <br/><br/>
     <div class="jumbotron">
-        <h2>Cadastro de usuários</h2>
+        <h2>Login</h2>
         <form action="/login" method="post">
             <div class="form-group label-floating">
                 <label class="control-lbel">Email</label>
